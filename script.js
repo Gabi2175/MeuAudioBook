@@ -10,14 +10,15 @@ let capituloAtual = 1;
 
 function tocarFaixa(){
     audioCapitulo.play();
-    botaoPlayPause.classList.remove('bi bi-play-circle-fill');
-    botaoPlayPause.classList.add('bi bi-pause-circle-fill');
+    botaoPlayPause.classList.remove('bi-play-circle-fill');
+    botaoPlayPause.classList.add('bi-pause-circle-fill');
 
 }
 function pausarFaixa(){
     audioCapitulo.pause();
-    botaoPlayPause.classList.remove('bi bi-pause-circle-fill');
-    botaoPlayPause.classList.add('bi bi-play-circle-fill');
+    botaoPlayPause.classList.add('bi-play-circle-fill');
+    botaoPlayPause.classList.remove('bi-pause-circle-fill');
+
 }
 
 function tocarOuPausar(){
@@ -31,7 +32,7 @@ function tocarOuPausar(){
 }
 
 function trocarNomeFaixa(){
-    nomeCapitulo.innerText = 'Capítulo' + capituloAtual;
+    nomeCapitulo.innerText = 'capitulo' + capituloAtual;
 }
 function proximaFaixa(){
     if( capituloAtual === numeroCapitulos){
@@ -49,7 +50,7 @@ function voltarFaixa(){
     if( capituloAtual === 1){
         capituloAtual = numeroCapitulos;
     } else{
-        capituloAtual = capituloAtual - 1;
+        capituloAtual = capituloAtual - 1
     }
 
     audioCapitulo.src = "./books/dom-casmurro/" + capituloAtual + '.mp3';
@@ -58,6 +59,6 @@ function voltarFaixa(){
     trocarNomeFaixa;
 }
 
-botaoPlayPause.addEventListener('click' ,tocarFaixa);
-botaoAvancar.addEventListener('clck' ,proximaFaixa);
+botaoPlayPause.addEventListener('click' , tocarOuPausar);
+botaoAvancar.addEventListener('clck' , proximaFaixa);
 botaoVoltar.addEventListener('click', voltarFaixa);
